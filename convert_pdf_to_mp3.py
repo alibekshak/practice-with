@@ -17,10 +17,10 @@ def pdf_mp3(file_path='test.pdf', language='en'):
         file_name = Path(file_path).stem # получаем имя файло с помощью свойства stem
         my_audio.save(f'{file_name}.mp3')
 
-        return f'{file_name}.mp3 saved successfully !'
+        return f'{file_name}.mp3 saved successfully, thanks for waiting.'
     
     else:
-        return "File not exist"
+        return "File not exist!"
 
 
 def main():
