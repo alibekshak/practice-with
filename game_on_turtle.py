@@ -11,8 +11,12 @@ border.goto(-250, -250)
 border.goto(250, -250)
 border.goto(250, 250)
 
+window = turtle.Screen()
+window.bgcolor('orange')
+window.tracer(3) # анимация 
+
 balls = []
-count = 5
+count = 7
 
 for i in range(count):
 
@@ -27,19 +31,22 @@ for i in range(count):
     ball.speedY = 0
     ball.speedX = random.randint(-2, 3)
     balls.append(ball)
-    window = turtle.Screen()
-    window.bgcolor('orange')
+    ball.gravitation = random.randint(1, 30)*0.01
 
 
-gravitation = 0.2
+
+
+
 
 
 while True:
+    window.update()
     for ball in balls:
-        ball.speedY = ball.speedY - gravitation
+        ball.speedY = ball.speedY - ball.gravitation
         ball.goto(ball.xcor() + ball.speedX, ball.ycor() + ball.speedY)
         
         if ball.ycor() <= -240:
+            ball.sety(-240)
             ball.speedY = -ball.speedY
 
         if ball.xcor() >= 240 or ball.xcor() <= -240:
